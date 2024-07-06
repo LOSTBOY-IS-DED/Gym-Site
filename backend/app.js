@@ -8,9 +8,10 @@ const router = express.Router();
 
 config({ path: "./config.env" });
 
+// Configure CORS
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL],
+    origin: "http://localhost:5173", // Update with your frontend URL
     methods: ["POST"],
     credentials: true,
   })
@@ -31,7 +32,7 @@ router.post("/send/mail", async (req, res, next) => {
   }
   try {
     await sendEmail({
-      email: "subhajitasguardian999@gmail.com",
+      email: "subhajitasguardian999@gmail.com", // Update with your email or use env variable
       subject: "GYM WEBSITE CONTACT",
       message,
       userEmail: email,
@@ -44,7 +45,7 @@ router.post("/send/mail", async (req, res, next) => {
     console.log(error);
     res.status(500).json({
       success: false,
-      message: " Internal Server Error",
+      message: "Internal Server Error",
     });
   }
 });

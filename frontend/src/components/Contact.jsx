@@ -1,7 +1,7 @@
-import React, { useState } from "react";
 import axios from "axios";
+import React, { useState } from "react";
 import { ClipLoader } from "react-spinners";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -45,30 +45,24 @@ const Contact = () => {
           <input
             type="text"
             value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          ></input>
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
         <div>
           <label>Email</label>
           <input
             type="email"
             value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          ></input>
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
         <div>
           <label>Message</label>
           <input
             type="text"
             value={message}
-            onChange={(e) => {
-              setMessage(e.target.value);
-            }}
-          ></input>
+            onChange={(e) => setMessage(e.target.value)}
+          />
         </div>
         <button
           type="submit"
